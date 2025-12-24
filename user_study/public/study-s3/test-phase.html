@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="test-phase.css">
+    <title>Learning Feedback</title>
+</head>
+<body>
+    <div id="instructions" class="jumbotron text-left">
+        <h1 class="text-center">⏰ Testing Phase ⏰</h1>
+        <p class="lead"></p>
+        <p class="instructions lead">
+            Now you will be given a series of multiple choice questions pertaining to different subjects such as social sciences, elementary math problems, politics, and more. <br>
+            For each question you will be asked to predict whether the AI model is likely make an error.<br>
+            You'll then be asked about how you made this decision.
+        </p>
+        <p class="instructions lead"> <strong>⚠️ You should be in the mindset that <mark>you care about getting the CORRECT answer to the question.</mark> ⚠️</strong></p>
+        <ul>
+            <li class="instructions lead"> The AI model is the only resource you have available to use</li>
+            <li class="instructions lead"> No answer is better than a wrong answer</li>
+        </ul>    
+        <br><strong>Reminder:</strong>
+            <ul>
+              <li class="instructions lead">🚫<u>Do not </u> navigate back to the previous page.</li>
+              <li class="instructions lead">🚫<u>Do not </u> use the internet or LLMs or other AI tools to help you solve the questions. </li>
+              <li class="instructions lead">💭Try to apply what you have learned in the previous stages.</li>
+          </ul>
+        </p>
+        </p>
+        <button id="show-questions" class="btn btn-secondary mb-3" onclick="showQuestions()">Begin</button>
+        <p id="countdown-message">You can begin in <span id="countdown">15</span> seconds...</p>
+    </div>
+
+    <!-- Quiz Container (The Questions) -- This should be loaded dynamically -->
+    <div id="quiz-container" class="container mt-5">
+        <div class="row">
+            <div class="col-12 mt-4">
+                <div class="progress">
+                    <div id="quiz-progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div id="question" class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title" id="question-text"></h5>
+                        <div id="options-container">
+                            <div class="form-check">
+                                <span class="form-check-label" id="labelA">Option A</span>
+                            </div>
+                            <div class="form-check">
+                                <span class="form-check-label" id="labelB">Option B</span>
+                            </div>
+                            <div class="form-check">
+                                <span class="form-check-label" id="labelC">Option C</span>
+                            </div>
+                            <div class="form-check">
+                                <span class="form-check-label" id="labelD">Option D</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <span id="likelihood-instructions" class="d-block mb-3 text-center">
+                    <h3>It's sensible to use AI when it's typically (but not always) correct. <br> Would you use AI to get an answer to answer this question?</h3>
+                </span>            
+                <!-- The MC form (How likely)-->
+                <div id="options-form" class="card">
+                    <div class="card-body">
+                        <ul id="mainQ" class="list-group d-flex flex-row">
+                            <input type="hidden" name="error-likelihood" value="">
+                            <button id="likely wrong" class="list-group-item list-group-item-action me-3 text-center">
+                                <h5>I would NOT use AI</h5>
+                            </button>
+                            <button id="uncertain" class="list-group-item list-group-item-action me-3 text-center">
+                                <h5>I am uncertain</h5>
+                            </button>
+                            <button id="likely correct" class="list-group-item list-group-item-action me-3 text-center">
+                                <h5>I would use AI</h5>
+                            </button>
+                        </ul>
+                    </div>
+                </div>
+
+                
+            </div> 
+            <!-- Submit Button -->
+            <!-- <button type="button" class="btn btn-primary mt-3 d-block mx-auto" id="submitButton">Submit Answer</button> -->
+            
+            <div id="follow-up-qs" class="container-fluid mt-4">
+
+            <div id="uncertain-follow-up" class="card mt-4">
+                <div class="card-header text-center">
+                    <h5>Why were you uncertain?</h5>
+                </div>
+                <div class="card-body">
+                    <ul id="uncertain-follow-up-lg" class="list-group d-flex flex-row">
+                        <input type="hidden" name="used-guideline" value="">
+                        <button id="partial-guideline" class="list-group-item list-group-item-action me-3 text-center">The guideline(s) somewhat, but not clearly matches the question</button>
+                        <button id="no-guideline" class="list-group-item list-group-item-action me-3 text-center">No guideline matches the question</button>
+                        <button id="forgot" class="list-group-item list-group-item-action me-3 text-center">I forgot the guidelines</button>
+                    </ul>
+                    <div id="free-response-container" style="margin-top: 15px;">
+                        <!-- <input type="hidden" name="explanation" id="explanation" value=""> -->
+                        <label for="free-response-uncertain"><strong>Which guideline(s) are you considering?</strong></label>
+                        <textarea id="free-response-uncertain" name="free-response" class="form-control" rows="3" placeholder="Enter the guideline(s) here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="regular-follow-up" class="card mt-4">
+                <div class="card-header text-center">
+                    <h5>Was your decision based on a guideline?</h5>
+                </div>
+                <div class="card-body">
+                    <ul id="regular-follow-up-lg" class="list-group d-flex flex-row">
+                        <input type="hidden" name="used-guideline" value="">
+                        <button id="yes" class="list-group-item list-group-item-action me-3">Yes</button>
+                        <button id="no" class="list-group-item list-group-item-action me-3">No</button>
+                    </ul>
+                    <div id="free-response-container" style="margin-top: 15px;">
+                        <!-- <input type="hidden" name="explanation" id="explanation" value=""> -->
+                        <label for="free-response-reg"><strong>Please explain <mark>in complete sentence(s)</mark> how you made your decision about whether you would use AI to get an answer to this question</strong></label>
+                        <textarea id="free-response-reg" name="free-response" class="form-control" rows="3" placeholder="Enter your explanation here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary mt-3 d-block mx-auto" id="followUpButton">Submit</button>
+            </div>
+            
+            
+            <div id="details-container" class="container-fluid mt-4">
+                <!-- <div class="row"> -->
+                <!-- New Question Section -->
+                <!-- <div class="col-12 mt-4">
+
+
+
+                    <div id="details-msg" class="jumbotron text-left"></div>
+                    <div class="col-md-12 mt-4">
+                        <div id="details-rec" class="jumbotron text-left">
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="details-content"></div>
+                            <div class="card-body" id="details-example" >
+                                <div class="card-text" id="details-example"></div>  
+                            </div>
+                            <div class="card-footer" id="details-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button id="buttonPrev" type="button" class="btn btn-secondary btn-block">Previous Example</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button id="buttonNext" type="button" class="btn btn-secondary btn-block">Next Example</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Sidebar container to show old regions-->
+                    <!-- <div class="col-md-4 mt-4">
+                        <div id="sidebar" class="card">
+                            <div class="card-header text-center">
+                                <h5 class="card-title">Usage Guidelines</h5>
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#sidebarContent" aria-expanded="true" aria-controls="sidebarContent">
+                                    View/Hide
+                                </button>
+                            </div>
+                            <div class="card-body collapse"  id="sidebarContent"> -->
+                                <!-- Content is dynamically created with createSidebarList() -->
+                            <!-- </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="test-phase.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.option, .answer {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .selected-question, .selected-answer {
+    background-color: #007bff; /* Blue background for selected question and answer */
+    color: #fff;
+  }
+  
+  .selected-pair {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #28a745; /*Green border for correct pair */
+  }
+  
+  .incorrect-message {
+    color: #dc3545; /* Red color for incorrect message */
+  }
+  
+  .removed-question {
+      display: none;
+  }
+  
+  .congrats-message {
+      color: black
+  }

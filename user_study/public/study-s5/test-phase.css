@@ -1,0 +1,15 @@
+#quiz-container {
+    display: none;
+}
+
+.green-tile {
+    background-color: rgb(115, 189, 115);
+    /* background: repeating-linear-gradient(45deg, #ffffff, #ffffff 10px, #e0e0e0 10px, #e0e0e0 20px); */
+    /* border-color: rgb(115, 189, 115); */
+}
+
+.red-tile {
+    background-color: rgb(206, 121, 121);
+    /* border-color: rgb(206, 121, 121); */
+}
+

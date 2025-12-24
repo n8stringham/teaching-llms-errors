@@ -1,0 +1,89 @@
+#details-container {
+    display: none;
+    margin: 20px;
+}
+
+#tiles-container {
+    flex: 1;
+}
+
+.card {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+/* region cards will slightly enlarge when hovered over */
+.region:hover {
+    transform: scale(1.05);
+}
+
+/* Custom CSS for carousel controls */
+#regionCarousel {
+    position: relative;
+}
+
+.carousel-controls {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.carousel-controls button {
+    margin: 0 5px;
+}
+
+#backButton {
+    display: none;
+}
+
+.green-tile {
+    background-color: rgb(115, 189, 115);
+    /* background: repeating-linear-gradient(45deg, #ffffff, #ffffff 10px, #e0e0e0 10px, #e0e0e0 20px); */
+    /* border-color: rgb(115, 189, 115); */
+}
+
+.red-tile {
+    background-color: rgb(206, 121, 121);
+    /* border-color: rgb(206, 121, 121); */
+}
+
+.marker {
+    position: absolute;
+    top: 10%; 
+    width: 100%;
+    font-size: 200px; /* Adjust the size of the checkmark */
+    text-align: center;
+    color: rgba(0, 0, 0, 0.2); /* Adjust the color of the checkmark */
+    pointer-events: none; /* Prevent the checkmark from blocking interactions */
+  }
+
+  .marker-sidebar {
+    position: absolute;
+    top: 0%; 
+    width: 100%;
+    font-size: 80px; /* Adjust the size of the checkmark */
+    text-align: center;
+    color: rgba(0, 0, 0, 0.2); /* Adjust the color of the checkmark */
+    pointer-events: none; /* Prevent the checkmark from blocking interactions */
+  }
+
+.hidden-list-item {
+    display: none;
+}
+
+.highlight {
+    /* color: green; */
+    /* font-style: italic; */
+    font-weight: bolder;
+}
+
+ol.no-numbers {
+    list-style: none;
+    padding-left: 0;
+}
+
+ol.no-numbers li::before {
+    content: "🚫 ";
+}

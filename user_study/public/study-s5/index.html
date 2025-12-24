@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Consent Form</title>
+</head>
+<body>
+    
+    <div id="instructions" class="jumbotron text-left">
+        <h1 class="text-center">Consent Form</h1>
+        <p class="instructions lead">
+            This research study aims to evaluate how to improve human collaboration with AI through a teaching process which highlights the strengths and weaknesses of the model.
+        </p>
+            
+        <p class="instructions lead">   
+            <!-- In this study you will first be shown information about the strengths and weaknesses of the AI model including its accuracy for questions covering specific categories of knowledge. Next you will complete a quiz designed to test your knowledge of the model’s strengths and weaknesses presented in the teaching phase. Finally, you will answer a series of multiple choice questions pertaining to different subjects such as social sciences, elementary math problems, politics, and more. When answering these questions, you will have the option to view the corresponding prediction and explanation from an AI model. It is up to you to decide whether to trust the AI prediction or solve the task yourself.
+            Your goal is to be as accurate as possible in answering the questions. You will be compensated according to the number of tasks you complete. Please note that you will be compensated for each completed task regardless of the correctness of your answers. -->
+            In this study, you will be given a series of multiple choice questions pertaining to different subjects such as social sciences, elementary math problems, politics, and more
+            For each question you will be asked to predict whether the AI model is likely make an error.
+            You'll then be asked about how you made this decision.
+            You will be compensated according to the number of tasks you complete. Please note that you will be compensated for each completed task regardless of the correctness of your answers.
+            
+        </p> 
+        <p class="instructions lead">
+            <em>The potential risk to participants is minimal. We will not collect any identifying information during the study.</em>   
+        </p>
+
+        <p class="instructions lead">
+            If you have any questions or complaints or if you feel this research has harmed you, please contact <em>Ana Marasović, Kahlert School of Computing, 50 Central Campus Dr, Salt Lake City, UT 84112, Room MEB 2166</em>, e-mail: ana.marasovic@utah.edu.    
+        </p>
+        <p class="instructions lead">
+            <em>Contact the Institutional Review Board (IRB) if you have questions regarding your rights as a research participant. Also, contact the IRB if you have questions, complaints or concerns which you do not feel you can discuss with the investigator. The University of Utah IRB may be reached by phone at (801) 581-3655 or by e-mail at irb@hsc.utah.edu.</em>
+        </p>
+
+        <p class="instructions lead">
+            <em>Research Participant Advocate:  You may also contact the Research Participant Advocate (RPA) by phone at (801) 581-3803 or by email at participant.advocate@hsc.utah.edu.</em>
+        </p>
+        <p class="instructions lead">
+            You may choose to complete as many or as few tasks as possible. Participation in this study is voluntary. You may stop your participation in the study at any time without penalty. We expect the study to take approximately 20 minutes to complete, but you may finish sooner.
+        </p>
+
+        <p class="'instructions lead">
+            By answering survey questions, you are giving your consent to participate.
+        </p>
+        
+        <p class="instructions lead">
+            We appreciate your participation.
+        </p>
+        <br>
+
+        <!-- Auth section -->
+        <!-- <p class="instructions lead"> <strong>Please enter your ID</strong></p>
+        <input type="text"
+               id="workerID"
+               name="user_name"
+               placeholder="Enter your ID" 
+               required/>
+        <p class="instructions lead"> <strong>Please enter your code</strong></p>
+        <input type="password"
+               id="authen_token"
+               name="authen_token"
+               placeholder="Enter your code" 
+               required /> -->
+        <p style="color:red" id="message_highlighted"> </p>
+        <p>
+            <button id="irb" class="btn btn-secondary mb-3" onclick="authorize()"> I agree</button>
+        </p>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+    <script src="./auth.js"></script>
+</body>
+</html>
