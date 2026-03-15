@@ -1,7 +1,7 @@
 # teaching-llms-errors
 
 ## The AI-Integration Teaching Pipeline
-The `pipeline/` folder contains code for running experiments for Stages 1&2 found in the paper: 
+The `pipeline/` folder contains code for running experiments for Stages 1&2 found in the [paper](https://arxiv.org/abs/2512.21422): 
 
 ### Analyzing existence of failure patterns worth-teaching using meta-labels
 Related code can be found in `stage1_do_errors_exist`
