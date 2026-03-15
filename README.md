@@ -7,7 +7,7 @@ The `pipeline/` folder contains code for running experiments for Stages 1&2 foun
 Related code can be found in `stage1_do_errors_exist`
 * `dataset-model-analysis.ipynb` contains code for analyzing the existence of sizable groups of failure patterns represented by meta-labels for MMLU and MathCAMPs.
 
-To analyze `mmlu`, you'll need to download the data and predictions from [here](https://drive.google.com/file/d/1vrBo426u8O8UMpnmBZyTH7h4mFZR8RJT/view?usp=sharing)
+To analyze `mmlu`, you'll need to download the data and predictions from [here](https://drive.google.com/file/d/1vrBo426u8O8UMpnmBZyTH7h4mFZR8RJT/view?usp=sharing) and place it in `stage1_do_errors_exist/datasets`
 
 ### Generating Failure Patterns
 `describe-landscape.py` is used to generate candidate failure patterns for a model and dataset pair. 
