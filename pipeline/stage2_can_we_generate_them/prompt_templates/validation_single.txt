@@ -1,0 +1,27 @@
+Below you will be given a description of a standard that describes a type of math problem and a candidate hypothesis.
+Check whether the hypothesis gives the same meaning as the description. If the hypothesis matches, record a 1 in the "recovered" json entry. If no hypothesis matches, record a 0 in the "recovered" entry.
+
+Here are two examples of how this should be done.
+***
+Example 1
+Description: Polygon perimeter. Solve real world and mathematical problems involving perimeters of polygons, including finding the perimeter given the side lengths, finding an unknown side length, and exhibiting rectangles with the same perimeter and different areas or with the same area and different perimeters.
+Candidate:
+"hypothesis": "asks to find the length of one side in a regular polygon by dividing the perimeter",
+
+Response: {{"recovered": 1}}
+
+Example 2
+Description: Adding to equal 10. For any number from 1 to 9, find the number that makes 10 when added to the given number, e.g., by using objects or drawings, and record the answer with a drawing or equation.
+Candidate:
+"hypothesis": "requires handling fractional arithmetic and simplification, especially with uncommon denominators",
+
+Response: {{"recovered": 0}}
+***
+
+Now complete the task for the following example:
+
+Description: {short_descr}. {long_descr}
+Candidate:
+{hypotheses}
+
+Response: 

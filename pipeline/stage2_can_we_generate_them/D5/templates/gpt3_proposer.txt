@@ -1,0 +1,15 @@
+{A_block}
+
+{B_block}
+
+The dataset includes {dataset_description}. The two groups are generated based on {generation}. The Group A snippets {A_desc}, while the Group B snippets {B_desc}. 
+
+I am {user}. My goal is to figure out what types of questions the AI model is more likely to fail on and teach these principles to other users of the system.
+In other words, I want to discover what specific features of the text distinguish the questions where AI is correct from the questions where AI is wrong. 
+
+Please write a list of the most salient hypotheses about the datapoints from Group A (listed by bullet points "-"). Each hypothesis should be formatted as a sentence fragment. Here are three examples.
+- "requires addition with two-digit numbers"
+- "contains negation words in the question"
+- "involves computing an integral as an intermediary step"
+
+Based on the two sentence groups (A and B) from the above, more sentences in Group A

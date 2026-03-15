@@ -1,0 +1,8 @@
+Below you will be given a hypothesis and a list of criteria that the hypothesis should mention or imply.
+For each of the criteria, check whether the hypothesis satisfies it. 
+Format your response as a json object where each criteria is a key and the value is 1 if it is satisfied and 0 otherwise.
+
+Hypothesis: {hypothesis}
+criteria: {criteria}
+
+Response: 

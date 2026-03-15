@@ -1,0 +1,18 @@
+I am a user of an AI system. My goal is to figure out what types of questions the AI model is more likely to fail on and teach these principles to other users of the system.
+In other words, I want to discover what specific features of the text distinguish the questions where AI is correct from the questions where AI is wrong.
+Given a list of instances where an AI was incorrect, please generate the most salient hypotheses which describe instances where AI is more likely to be wrong.
+Format the response as a json object. 
+For example, here is how the output would be formatted for 3 generated hypotheses.
+{{"hypothesis0": "requires addition with two-digit numbers",
+"hypothesis1": "contains negation words in the question",
+"hypothesis2": "involves computing an integral as an intermediary step"}}
+
+You should generate as many hypotheses as you deem fit to cover the most salient error types.
+The description(s) should be concise, understandable to humans, and describe as many of the wrong instances as possible. Ideally, the list would cover all of the datapoints. Avoid using subjective or vague language such as "complex" or "ambiguous" and focus on specific characteristics. If there are no distinctive properties then list "None" as the entry.
+
+Error Instances:
+***
+{error_instances}
+***
+
+Based on the error instances from the above, the model is likely to make an error when a question

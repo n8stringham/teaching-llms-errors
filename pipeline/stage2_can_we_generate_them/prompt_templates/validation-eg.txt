@@ -1,0 +1,11 @@
+Now complete the task for the following example:
+
+Description: Calculate square and cube roots. Use square root and cube root symbols to represent solutions to equations of the form x\u00b2 = p and x\u00b3 = p, where p is a positive rational number. Evaluate square roots of small perfect squares and cube roots of small perfect cubes. Know that the square root of 2 is irrational.
+Candidates:
+        "hypothesis0": "requires finding the cube root of a volume to determine the edge length of a cube",
+        "hypothesis1": "involves performing operations on fractions and simplifying the result",
+        "hypothesis2": "includes multiple steps with fractional arithmetic leading to a final result",
+        "hypothesis3": "contains operations with small or non-integer counts of items (e.g., decimals or fractions)",
+        "hypothesis4": "requires exact arithmetic with uncommon or awkward constraints, such as precise number of decimal places or exact fractions in non-obvious measurement units"
+
+Response: 

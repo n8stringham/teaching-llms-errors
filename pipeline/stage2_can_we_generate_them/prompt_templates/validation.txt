@@ -1,0 +1,35 @@
+Below you will be given a description of a standard that describes a type of math problem and a list of candidate hypotheses.
+Check whether any of the hypotheses give the same meaning as the description. If any of the hypotheses match, record a 1 in the "recovered" json entry and add the names of all matching hypotheses to a list in the "hypotheses" json entry. If no hypothesis matches, record a 0 in the "recovered" entry and an empty list in the "hypotheses" entry.
+
+Here are two examples of how this should be done.
+***
+Example 1
+Description: Polygon perimeter. Solve real world and mathematical problems involving perimeters of polygons, including finding the perimeter given the side lengths, finding an unknown side length, and exhibiting rectangles with the same perimeter and different areas or with the same area and different perimeters.
+Candidates:
+"hypothesis0": "includes fractional arithmetic with varying denominators",
+"hypothesis1": "asks to find the length of one side in a regular polygon by dividing the perimeter",
+"hypothesis2": "contains multi-step calculations involving division or subtraction",
+"hypothesis3": "uses uncommon or non-integer measurements or rates",
+"hypothesis4": "asks to solve equations with missing variables"
+
+Response: {{"recovered": 1, ["hypothesis1"]}}
+
+Example 2
+Description: Adding to equal 10. For any number from 1 to 9, find the number that makes 10 when added to the given number, e.g., by using objects or drawings, and record the answer with a drawing or equation.
+Candidates:
+"hypothesis0": "requires handling fractional arithmetic and simplification, especially with uncommon denominators",
+"hypothesis1": "involves multi-step arithmetic problems that combine fractions and decimals",
+"hypothesis2": "contains incorrect or misleading contextual information related to mathematical operations (e.g., inconsistent units or operations)",
+"hypothesis3": "requires complex nested arithmetic expressions with mixed operations (addition, subtraction, multiplication, division)",
+"hypothesis4": "requires understanding implicit sequences or actions that are not clearly delineated"
+
+Response: {{"recovered": 0, []}}
+***
+
+Now complete the task for the following example:
+
+Description: {short_descr}. {long_descr}
+Candidates:
+{hypotheses}
+
+Response: 
