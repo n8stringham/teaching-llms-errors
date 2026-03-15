@@ -64,3 +64,14 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# log files
+log/
+
+# file system
+.nfs*
+
+# large pickle files
+.pkl
+
+__pycache*
